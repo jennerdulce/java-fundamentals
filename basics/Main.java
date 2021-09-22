@@ -42,12 +42,11 @@ public class Main {
       if (number >= 0.5d) {
         System.out.println("Heads.");
         consecutive++;
-        flips++;
       } else if (number < 0.5d) {
         System.out.println("Rails.");
         consecutive = 0;
-        flips++;
       }
+      flips++;
     }
     System.out.println(("It took " + flips + " to flip " + numOfFlips + " head in a row."));
   }

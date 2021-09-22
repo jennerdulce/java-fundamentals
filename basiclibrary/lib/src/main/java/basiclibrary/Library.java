@@ -2,6 +2,7 @@ package basiclibrary;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Arrays;
 
 public class Library {
     public static void main(String[] args){
@@ -67,9 +68,7 @@ public class Library {
     }
 
     // Array of Arrays
-    // How to properly return and display an array
-        // Should I have used an array list within the array?
-    public static int[] averageArray(int[][] arr){
+    public static String averageArray(int[][] arr){
         double lowestAvg = Double.POSITIVE_INFINITY;
         int[] lowestArr = new int[5];
         for(int i = 0; i < arr.length; i++){
@@ -80,6 +79,6 @@ public class Library {
                 lowestAvg = sum;
             }
         }
-        return lowestArr;
+        return Arrays.toString(lowestArr);
     }
 }

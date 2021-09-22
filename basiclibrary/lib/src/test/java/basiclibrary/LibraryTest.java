@@ -5,36 +5,37 @@ package basiclibrary;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void roll_dice() {
-        Library systemUnderTest = new Library();
-        ArrayList<Integer> arr = systemUnderTest.roll(3);
-        assertEquals(3, arr.size(), "There are 3 items in the array that was returned.");
-        assertNotEquals(4, arr.size());
-    }
+    // Set up a before each
+   @Test void roll_dice() {
+       Library systemUnderTest = new Library();
+       ArrayList<Integer> arr = systemUnderTest.roll(3);
+       assertEquals(3, arr.size(), "There are 3 items in the array that was returned.");
+       assertNotEquals(4, arr.size());
+   }
 
-    @Test void contains_duplicates() {
-        Library systemUnderTest = new Library();
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(1);
-        arr.add(2);
-        arr.add(1);
+   @Test void contains_duplicates() {
+       Library systemUnderTest = new Library();
+       ArrayList<Integer> arr = new ArrayList<>();
+       arr.add(1);
+       arr.add(2);
+       arr.add(1);
 
-        boolean result = systemUnderTest.containDuplicates(arr);
-        assertEquals(true, result, "Should return true; There are duplicates");
-    }
+       boolean result = systemUnderTest.containDuplicates(arr);
+       assertEquals(true, result, "Should return true; There are duplicates");
+   }
 
-    @Test void calculate_averages(){
-        Library systemUnderTest = new Library();
-        int[] average = {1, 2, 3};
-        int result = systemUnderTest.calculateAverage((average));
-        assertEquals(2, result, "Should equal.");
-    }
+   @Test void calculate_averages(){
+       Library systemUnderTest = new Library();
+       int[] average = {1, 2, 3};
+       int result = systemUnderTest.calculateAverage((average));
+       assertEquals(2, result, "Should equal.");
+   }
 
     @Test void arrays_of_arrays(){
         Library systemUnderTest = new Library();
@@ -43,9 +44,9 @@ class LibraryTest {
                 {4, 5, 6},
                 {1, 1, 1}
         };
-        int[] result = systemUnderTest.averageArray(numbers);
+        String result = systemUnderTest.averageArray(numbers);
         int[] correct = {1, 1, 1};
         // Need to properly return an array and find a way to compare
-//        assertEquals(correct, result, "Should equal true; [1, 1, 1]");
+         assertEquals(Arrays.toString(correct), result, "Should equal true; [1, 1, 1]");
     }
 }

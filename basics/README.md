@@ -1,4 +1,4 @@
-# java-fundamentals
+# Lab: 01 - Java primitives and control flow
 
 ## How to import pre-build Java Packages
 
@@ -18,6 +18,8 @@
 
 ## Classes and Methods used
 
+### Classes Used
+
 - DateTimeFormatter
   - `.ofPattern()`
   - Takes the time of your computer of a certain pattern
@@ -36,3 +38,14 @@
 
 - TimerTask
   - Creates a task to perfrom within the timer
+
+### Created Methods
+
+- `pluralize(String, int)`
+  - Returns a string with the given arguments
+
+- `flipNHeads(int)`
+  - Returns a string that describes how many flips it took in total to achieve n consecutive flips
+
+- `clock()`
+  - Prints out the time in second intervals

@@ -49,4 +49,40 @@ class LibraryTest {
         // Need to properly return an array and find a way to compare
          assertEquals(Arrays.toString(correct), result, "Should equal true; [1, 1, 1]");
     }
+
+    @Test void weather_data() {
+        App systemUnderTest = new App();
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        String expectedResult = "High: 72\n" +
+                "Low: 51\n" +
+                "Never saw temperature: 63\n" +
+                "Never saw temperature: 67\n" +
+                "Never saw temperature: 68\n" +
+                "Never saw temperature: 69\n";
+        String actualResult = systemUnderTest.weatherData(weeklyMonthTemperatures);
+        System.out.println(actualResult);
+        assertEquals(expectedResult,  actualResult, "Expected result should match Actual result");
+    }
+
+    @Test void tallying_election() {
+        App systemUnderTest = new App();
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+        String expectedResult = "Bush received the most votes!";
+        String actualResult = tally(votes);
+        assertEquals(expectedResult,  actualResult, "Expected result should match Actual result");
+    }
 }

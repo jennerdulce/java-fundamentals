@@ -1,8 +1,6 @@
 package basiclibrary;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Arrays;
+import java.util.*;
 
 public class Library {
     public static void main(String[] args){
@@ -136,7 +134,7 @@ public class Library {
         return weatherString;
     }
 
-     // Tallying Election
+     // Tallying Election|
      public static String tally(List<String> arr) {
         HashMap<String, Integer> pollVotes = new HashMap<>();
         int numOfVotes = Integer.MIN_VALUE;

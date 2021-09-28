@@ -1,4 +1,4 @@
-package Linter;
+package linter;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

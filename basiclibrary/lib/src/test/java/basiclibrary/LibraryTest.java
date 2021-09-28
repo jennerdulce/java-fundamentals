@@ -7,11 +7,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    // Set up a before each
    @Test void roll_dice() {
        Library systemUnderTest = new Library();
        ArrayList<Integer> arr = systemUnderTest.roll(3);
@@ -51,7 +51,7 @@ class LibraryTest {
     }
 
     @Test void weather_data() {
-        App systemUnderTest = new App();
+        Library systemUnderTest = new Library();
         int[][] weeklyMonthTemperatures = {
                 {66, 64, 58, 65, 71, 57, 60},
                 {57, 65, 65, 70, 72, 65, 51},
@@ -70,7 +70,8 @@ class LibraryTest {
     }
 
     @Test void tallying_election() {
-        App systemUnderTest = new App();
+
+        Library systemUnderTest = new Library();
         List<String> votes = new ArrayList<>();
         votes.add("Bush");
         votes.add("Bush");
@@ -82,7 +83,7 @@ class LibraryTest {
         votes.add("Hedge");
         votes.add("Bush");
         String expectedResult = "Bush received the most votes!";
-        String actualResult = tally(votes);
+        String actualResult = systemUnderTest.tally(votes);
         assertEquals(expectedResult,  actualResult, "Expected result should match Actual result");
     }
 }

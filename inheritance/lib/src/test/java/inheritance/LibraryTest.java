@@ -16,9 +16,36 @@ class LibraryTest {
                 "0.0/5\n" +
                 "$$$";
         String actualStringResult = chilis.toString();
-        System.out.println(chilis.toString());
         assertEquals(expectedResult, actualResult);
-        assertEquals(expectedStringResult, actualStringResult);
+        assertEquals(expectedStringResult, actualStringResult, "Should output the correct string format");
+    }
+
+    @Test void create_a_shop() {
+        Shop vans = new Shop("Vans", 3);
+        boolean expectedResult = true;
+        boolean actualResult = vans instanceof Shop;
+        String expectedStringResult =
+                "Vans\n" +
+                        "0.0/5\n" +
+                        "$$$";
+        String actualStringResult = vans.toString();
+        System.out.println(vans.toString());
+        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedStringResult, actualStringResult, "Should output the correct string format");
+    }
+
+    @Test void create_a_theater() {
+        Theater amc = new Theater("AMC", 3);
+        boolean expectedResult = true;
+        boolean actualResult = amc instanceof Theater;
+        String expectedStringResult =
+                "AMC\n" +
+                        "0.0/5\n" +
+                        "$$$\n";
+        String actualStringResult = amc.toString();
+        System.out.println(amc.toString());
+        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedStringResult, actualStringResult, "Should output the correct string format");
     }
 
     @Test void create_a_review() {
@@ -26,13 +53,28 @@ class LibraryTest {
         Review testReview = new Review("Testing body paragraph", "Jenner Dulce", 5, chilis);
         boolean expectedResult = true;
         boolean actualResult = testReview instanceof Review;
-        String expectedStringResult =
-                "Chilis\n" +
+        String expectedStringResult = "Chilis\n" +
                 "Written by: Jenner Dulce\n" +
-                "Body: Testing body paragraph\n" +
-                "5.0/5";
+                "5.0/5\n" +
+                "Body: Testing body paragraph";
         String actualStringResult = testReview.toString();
         assertEquals(expectedResult, actualResult);
+        assertEquals(expectedStringResult, actualStringResult, "Should output the correct string format");
+    }
+
+    @Test void create_a_movie_review() {
+        Theater amc = new Theater("AMC", 3);
+        Review testReview = new Review("Testing body paragraph", "Jenner Dulce", 5, amc, "Hulk");
+        boolean expectedResult = true;
+        boolean actualResult = testReview instanceof Review;
+        String expectedStringResult = "AMC\n" +
+                "Written by: Jenner Dulce\n" +
+                "Movie: Hulk\n" +
+                "5.0/5\n" +
+                "Body: Testing body paragraph";
+        String actualStringResult = testReview.toString();
+        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedStringResult, actualStringResult, "Should output the correct string format");
     }
 
     @Test void add_review_to_restauraunt() {
@@ -43,6 +85,7 @@ class LibraryTest {
         int actualResult = chilis.totalReviews;
         assertEquals(expectedResult, actualResult);
     }
+
     @Test void stars_calculator() {
         Restaurant chilis = new Restaurant("Chilis", 3);
         Review testReview = new Review("Testing body paragraph", "Jenner Dulce", 5, chilis);
@@ -50,7 +93,28 @@ class LibraryTest {
         chilis.addReview(testReview);
         chilis.addReview(testReviewTwo);
         float expectedResult = 5.0f;
-        float actualResult = (float) chilis.stars;
+        float actualResult = (float) chilis.starRating;
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test void add_movie() {
+        Theater amc = new Theater("AMC", 3);
+        amc.addMovie("Hulk");
+        amc.addMovie("Spiderman");
+        amc.addMovie("Avengers");
+        int expectedResult = 3;
+        int actualResult = amc.listOfMovies.size();
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test void remove_movie() {
+        Theater amc = new Theater("AMC", 3);
+        amc.addMovie("Hulk");
+        amc.addMovie("Spiderman");
+        amc.addMovie("Avengers");
+        amc.removeMovie("Hulk");
+        int expectedResult = 2;
+        int actualResult = amc.listOfMovies.size();
         assertEquals(expectedResult, actualResult);
     }
 }

@@ -2,6 +2,8 @@
 
 ## Problem Domain
 
+### Assignment 1
+
 1. Create a class to represent a Restaurant. Each Restaurant should have a name, a number of stars betweeen 0 and 5, and a price category (i.e. number of dollar signs).
 
 - Implement a Restaurant constructor.
@@ -29,9 +31,42 @@
 
 5. When you associate a review with a restaurant, that restaurant’s star rating should change. Ensure that your addReview method updates the Restaurant star rating appropriately, and add tests. (In particular, ensure that if you’re trying to call addReview when the restaurant and the review are already associated, the star rating of the restaurant does not update.)
 
-## Created Methods
+### Assignment 2
 
-### Restaurant Class
+1. The users want shops! Create a Shop class; a Shop should have a name, description, and number of dollar signs.
+
+- Implement a constructor for a Shop.
+- Implement a reasonable toString method for Shops.
+- Add tests for the basics of your Shop class.
+
+2. The users also want to review shops!
+
+- It would be great if a Review could be about either a Shop or a Restaurant. Choose an implementation, and make this possible.
+- Ensure that your Shop class has an instance method to add a review about that shop, and that it works just as well as the Restaurant instance method with the same purpose.
+- Write tests for this functionality.
+
+3. The users want theaters! Create a Theater class; a Theater should have a name and all of the movies currently showing there. (Strings are fine for the movies; no need to create another class.)
+
+- Implement a constructor for a Theater.
+- Write addMovie and removeMovie instance methods that allow the theater to update which movies are being shown.
+- Implement a reasonable toString method for Theaters.
+- Test your Theater functionality.
+
+4. Review all the things!
+
+- Ensure that your Theater is just as reviewable as your Restaurant and your Shop.
+- Test this functionality.
+
+5. Users are frustrated: they like having a body, an author, and a number of stars, but when they’re reviewing a Theater, they also want to specify which movie they saw.
+
+- Some reviews should now have a String movie instance variable, to hold which movie that reviewer is referencing.
+- Make sure that someone reviewing a Restaurant or a Shop doesn’t have to include which movie they saw!
+- It’s also okay if someone doesn’t want to include the movie they saw when they’re reviewing a theater (maybe they just went in for the popcorn).
+- Add testing for any new functionality you’ve created.
+
+## Created Classes and Methods
+
+### (Class) Establishment
 
 - `@Override .toString()`
   - Returns the a string and displays the contents of the instantiated class in a readable manner
@@ -41,6 +76,17 @@
   - The review is then added to the `ArrayList<Review>` where it is stored with other reviews
   - Increments the `totalReview` count by 1
   - Recalculates the total star rating of the restaurant by taking the `stars` property from the submitted review and diving by the `totalReviews`
+  - Adds movie title if given
+
+### (Sub Classes of Establishment) Theater, Shop, Restaurant
+
+#### Theater
+
+- `.addMovie(String)`
+  - Adds a movie title to the listOfMovies ArrayList
+
+- `.removeMovie(String)`
+  - Removes a movie title from the listOfMovies ArrayList
 
 ### Review Class
 

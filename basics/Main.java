@@ -43,7 +43,7 @@ public class Main {
         System.out.println("Heads.");
         consecutive++;
       } else if (number < 0.5d) {
-        System.out.println("Rails.");
+        System.out.println("Tails.");
         consecutive = 0;
       }
       flips++;
